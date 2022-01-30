@@ -79,7 +79,7 @@ logging.info("sra download is done!")
 n = 0
 for file in sra_file[0]:
     n = n + 1
-    fastq_dump = 'fastq-dump --split-3'+' '+                  path_sra+file+'/'+file+'.sra'
+    fastq_dump = 'fastq-dump --split-3'+' '+                 '--gzip'+' '+                  path_sra+file+'/'+file+'.sra'
     if n == len(sra_file[0]):
         process = subprocess.Popen(fastq_dump,shell=True,cwd=path_fastq,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
         process.communicate()
